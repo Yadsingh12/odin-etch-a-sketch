@@ -13,11 +13,22 @@ function makeGrid(k) {
     }
 }
 
+function get_random_color(i) 
+{
+    let darken = 2.56*i;
+    if(darken>256) darken =255;
+    const red = Math.floor(Math.random()*(256 - darken));
+    const blue = Math.floor(Math.random()*(256 - darken));
+    const green = Math.floor(Math.random()*(256 - darken));
+    return `rgb(${red},${blue},${green})`;
+}
+
+let i=0;
 function hovering() {
     const square = document.querySelectorAll(".child");
     square.forEach(element => {
-        element.addEventListener('mouseover', () => { element.classList.add('hovered') });
-        element.addEventListener('mouseleave', () => { element.classList.remove('hovered') });
+        element.addEventListener('mouseover', () => { element.style.backgroundColor = get_random_color(i); });
+        element.addEventListener('mouseleave', () => { element.style.backgroundColor = 'white'; i++; });
     });
 }
 
