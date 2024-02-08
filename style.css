@@ -3,20 +3,24 @@
     width: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    margin: 10px;
+    background-color: black;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    flex:1 1 auto;
-    justify-content: space-evenly;
+    flex: 1 1 auto;
 }
 
 .child {
     background-color: red;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
+    border: 5px solid;
+    border-color: black;
+    flex: 1 1 auto;
+    align-self: stretch;
 }
 
 .hovered {
