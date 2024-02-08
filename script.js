@@ -46,6 +46,7 @@ btn.addEventListener('click', () => {
 
     while (container.hasChildNodes()) {
         container.removeChild(container.firstChild);
+        i=0;
     }
     makeGrid(gridSize);
     hovering();
