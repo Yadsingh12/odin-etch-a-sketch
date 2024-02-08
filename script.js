@@ -1,20 +1,29 @@
 const container = document.querySelector('#container');
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement('div');
-    row.className = 'row';
-    for (let j = 0; j < 16; j++) {
-        const child = document.createElement('div');
-        child.className = 'child';
-        row.appendChild(child);
+
+function makeGrid(k) {
+    for (let i = 0; i < k; i++) {
+        const row = document.createElement('div');
+        row.className = 'row';
+        for (let j = 0; j < k; j++) {
+            const child = document.createElement('div');
+            child.className = 'child';
+            row.appendChild(child);
+        }
+        container.appendChild(row);
     }
-    container.appendChild(row);
 }
 
-const square = document.querySelectorAll(".child");
-square.forEach(element => {
-    element.addEventListener('mouseover', () => { element.classList.add('hovered') });
-    element.addEventListener('mouseleave', () => { element.classList.remove('hovered') });
-});
+function hovering() {
+    const square = document.querySelectorAll(".child");
+    square.forEach(element => {
+        element.addEventListener('mouseover', () => { element.classList.add('hovered') });
+        element.addEventListener('mouseleave', () => { element.classList.remove('hovered') });
+    });
+}
+
+makeGrid(16);
+
+hovering();
 
 const body = document.querySelector('body');
 const btn = document.createElement('button');
@@ -24,25 +33,12 @@ body.prepend(btn);
 btn.addEventListener('click', () => {
     const gridSize = Number(prompt("number of squares per side for the new grid"));
     if (isNaN(gridSize)) return;
-    if (gridSize === null) return;
+    if (gridSize == 0) return;
 
     while (container.hasChildNodes()) {
         container.removeChild(container.firstChild);
     }
-    for (let i = 0; i < gridSize; i++) {
-        const row = document.createElement('div');
-        row.className = 'row';
-        for (let j = 0; j < gridSize; j++) {
-            const child = document.createElement('div');
-            child.className = 'child';
-            row.appendChild(child);
-        }
-        container.appendChild(row);
-        const square = document.querySelectorAll(".child");
-        square.forEach(element => {
-            element.addEventListener('mouseover', () => { element.classList.add('hovered') });
-            element.addEventListener('mouseleave', () => { element.classList.remove('hovered') });
-        });
-    }
+    makeGrid(gridSize);
+    hovering();
 
 })
