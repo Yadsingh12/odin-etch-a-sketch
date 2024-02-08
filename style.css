@@ -1,4 +1,4 @@
-#parent {
+#container {
     height: 400px;
     width: 400px;
     display: flex;
@@ -11,14 +11,14 @@
     display: flex;
     flex-direction: row;
     flex: 1 1 auto;
+    margin: 1px;
 }
 
 .child {
     background-color: red;
-    width: 15px;
-    height: 15px;
-    border: 5px solid;
-    border-color: black;
+    width: 100%;
+    height: 100%;
+    margin: 1px;
     flex: 1 1 auto;
     align-self: stretch;
 }
