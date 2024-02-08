@@ -9,3 +9,9 @@ for(let i=0; i<16; i++){
     }
     parent.appendChild(row);
 }
+
+const square = document.querySelectorAll(".child");
+square.forEach(element => {
+    element.addEventListener('mouseover',()=> {element.classList.add('hovered')});
+    element.addEventListener('mouseleave',()=> {element.classList.remove('hovered')});
+});
